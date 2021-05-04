@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="magin-top:150px; magin-left: 150px">
+    <h1>{{category}}</h1>
+    {% for product in products %}
+    <h2><a href="{{ product.get_absolute_html }}">{{product.name}}</a></h2>
+    <p>{{product.price}}</p>
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h1>Search</h1>
+    <form method="GET">
+        {{ form.as_p }}
+        <input type="submit" value="Search">
+    </form>
+    {% if results %}
+    {% for result in results %}
+
+    <h1><a href="{{ result.get_absolute_url }}">{{ result.name }}</a><h1/>
+    <p>{{ result.price }}<p/>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock content %}
+
+

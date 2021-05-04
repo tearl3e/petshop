@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pet Shop</title>
+<meta charset="iso-8859-1">
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/ie6.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/ie7.css' %}" type="text/css">
+</head>
+<body>
+<div id="header"> <a href="{% url 'index' %}" id="logo"><img src="{% static 'images/logo.gif' %}" width="310" height="114" alt="" ></a>
+  <ul class="navigation">
+    <li><a href="{% url 'index' %}">Home</a></li>
+    <li><a href="{% url 'petmart' %}">PetMart</a></li>
+    <li><a href="{% url 'blog' %}">Blog</a></li>
+    <li><a href="{% url 'contact' %}">Contact us</a></li>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+    {% else %}
+    <li><a href="{% url 'register' %}">Register</a><li/>
+    <li><a href="{% url 'login' %}">Login</a></li>
+    {% endif %}
+  </ul>
+</div>
+
+{% block content %}
+
+{% endblock content%}
+
+<div id="footer">
+  <div id="footnote">
+    <div class="section">Copyright &copy; 2012 <a href="#">Company Name</a> All rights reserved | Website Template By <a target="_blank" href="http://www.freewebsitetemplates.com/">freewebsitetemplates.com</a></div>
+  </div>
+</div>
+</body>
+</html>
